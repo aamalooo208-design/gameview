@@ -4,50 +4,102 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GameView | ویدیوهای گیمینگ و ماینکرفت</title>
+<title>GameView | ویدیوهای گیمینگ</title>
 
-<meta name="description" content="GameView سایت تماشای ویدیوهای گیمینگ و ماینکرفت">
-
-<meta name="keywords" content="GameView, Minecraft, Gaming, ویدیو, ماینکرفت">
-
+<meta name="description" content="GameView سایت تماشای کلیپ‌های گیمینگ و ماینکرفت">
+<meta name="keywords" content="GameView,Minecraft,Gaming,ماینکرفت">
 <meta name="robots" content="index, follow">
-
-<meta name="author" content="GameView">
 
 <link rel="icon" type="image/png" href="logo.png">
 
 <style>
 body{
-    margin:0;
-    background:#111;
-    color:white;
-    font-family:Arial,sans-serif;
-    text-align:center;
+margin:0;
+background:#111;
+font-family:Arial,sans-serif;
+color:white;
 }
+
 header{
-    background:#1b1b1b;
-    padding:20px;
+background:#1f1f1f;
+padding:20px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,.5);
 }
+
 h1{
-    margin:0;
-    font-size:38px;
+margin:0;
+font-size:40px;
+color:#00d4ff;
 }
-h2{
-    color:#00d4ff;
+
+p{
+color:#ccc;
 }
+
+.search{
+text-align:center;
+margin:20px;
+}
+
+.search input{
+width:80%;
+max-width:500px;
+padding:12px;
+font-size:18px;
+border:none;
+border-radius:10px;
+}
+
+.container{
+display:flex;
+justify-content:center;
+padding:20px;
+}
+
 .card{
-    background:#222;
-    width:320px;
-    margin:30px auto;
-    padding:20px;
-    border-radius:15px;
+background:#222;
+width:320px;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,212,255,.3);
+transition:.3s;
 }
-a{
-    color:white;
-    text-decoration:none;
+
+.card:hover{
+transform:scale(1.03);
 }
-a:hover{
-    color:#00d4ff;
+
+.card img{
+width:100%;
+display:block;
+}
+
+.card h2{
+padding:10px;
+margin:0;
+}
+
+.card p{
+padding:0 10px;
+}
+
+.btn{
+display:block;
+margin:15px;
+padding:12px;
+background:#00d4ff;
+color:black;
+text-align:center;
+text-decoration:none;
+font-weight:bold;
+border-radius:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#888;
 }
 </style>
 
@@ -57,15 +109,32 @@ a:hover{
 
 <header>
 <h1>🎮 GameView</h1>
-<h2>ویدیوهای گیمینگ</h2>
+<p>به دنیای ویدیوهای گیمینگ خوش آمدید</p>
 </header>
 
-<div class="card">
-<a href="watch.html">
-<h3>🎮 Minecraft Clip | کلیپ ماینکرفت</h3>
-<p>تماشای کلیپ ماینکرفت</p>
-</a>
+<div class="search">
+<input type="text" placeholder="جستجوی ویدیو...">
 </div>
 
+<div class="container">
+
+<div class="card">
+
+<img src="logo.png" alt="GameView">
+
+<h2>🎮 Minecraft Survival</h2>
+
+<p>تماشای کلیپ ماینکرفت</p>
+
+<a class="btn" href="watch.html">▶ تماشای ویدیو</a>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 GameView
+</footer>
+
 </body>
-</html>
+</html> 
