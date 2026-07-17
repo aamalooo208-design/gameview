@@ -107,4 +107,23 @@ topButton.addEventListener("click", () => {
 });
 
 // ===== پایان فایل =====
-console.log("✅ GameView Script Loaded");
+console.log("✅ GameView Script Loaded");// ===== Trending Videos Animation =====
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const trendCards = document.querySelectorAll(".trend-card");
+
+    trendCards.forEach((card, index) => {
+
+        card.style.opacity = "0";
+
+        setTimeout(() => {
+
+            card.style.transition = "0.5s";
+            card.style.opacity = "1";
+
+        }, index * 200);
+
+    });
+
+});
