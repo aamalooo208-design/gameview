@@ -1,68 +1,84 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GameView | ویدیوهای گیمینگ</title>
 
-<meta name="description" content="GameView سایت تماشای کلیپ‌های گیمینگ و ماینکرفت">
-<meta name="keywords" content="GameView,Minecraft,Gaming,ماینکرفت">
-<meta name="robots" content="index, follow">
+<meta name="description" content="GameView سایت تماشای ویدیوهای گیمینگ و ماینکرفت">
 
-<link rel="icon" type="image/png" href="logo.png">
+<meta name="keywords" content="GameView, Minecraft, Gaming, Video">
+
+<meta name="robots" content="index,follow">
+
+<link rel="icon" href="logo.png">
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 background:#111;
 font-family:Arial,sans-serif;
 color:white;
 }
 
 header{
-background:#1f1f1f;
+background:#1b1b1b;
 padding:20px;
-text-align:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
 box-shadow:0 2px 10px rgba(0,0,0,.5);
 }
 
-h1{
-margin:0;
-font-size:40px;
+.logo{
+font-size:35px;
+font-weight:bold;
 color:#00d4ff;
 }
 
-p{
-color:#ccc;
-}
-
 .search{
-text-align:center;
-margin:20px;
+width:45%;
 }
 
 .search input{
-width:80%;
-max-width:500px;
+width:100%;
 padding:12px;
-font-size:18px;
 border:none;
 border-radius:10px;
+font-size:16px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:18px;
+}
+
+.menu a:hover{
+color:#00d4ff;
 }
 
 .container{
-display:flex;
-justify-content:center;
-padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+padding:30px;
 }
 
 .card{
-background:#222;
-width:320px;
+background:#1d1d1d;
 border-radius:15px;
 overflow:hidden;
-box-shadow:0 0 15px rgba(0,212,255,.3);
+box-shadow:0 0 15px rgba(0,212,255,.25);
 transition:.3s;
 }
 
@@ -72,35 +88,64 @@ transform:scale(1.03);
 
 .card img{
 width:100%;
-display:block;
+height:180px;
+object-fit:cover;
 }
 
-.card h2{
-padding:10px;
-margin:0;
+.card-content{
+padding:15px;
 }
 
-.card p{
-padding:0 10px;
+.card-content h2{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card-content p{
+color:#bbb;
+margin-bottom:10px;
+}.like{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:15px;
+}
+
+.views{
+color:#aaa;
+font-size:14px;
+}
+
+.date{
+color:#888;
+font-size:13px;
+margin-top:8px;
 }
 
 .btn{
 display:block;
-margin:15px;
-padding:12px;
+margin-top:15px;
 background:#00d4ff;
 color:black;
-text-align:center;
 text-decoration:none;
-font-weight:bold;
+text-align:center;
+padding:12px;
 border-radius:10px;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#00aacc;
 }
 
 footer{
-text-align:center;
+background:#1b1b1b;
 padding:20px;
-color:#888;
+text-align:center;
+margin-top:40px;
+color:#999;
 }
+
 </style>
 
 </head>
@@ -108,33 +153,118 @@ color:#888;
 <body>
 
 <header>
-<h1>🎮 GameView</h1>
-<p>به دنیای ویدیوهای گیمینگ خوش آمدید</p>
-</header>
+
+<div class="logo">
+🎮 GameView
+</div>
 
 <div class="search">
 <input type="text" placeholder="جستجوی ویدیو...">
 </div>
 
+<div class="menu">
+<a href="#">خانه</a>
+<a href="#">ویدیوها</a>
+<a href="#">درباره</a>
+</div>
+
+</header>
+
 <div class="container">
 
 <div class="card">
 
-<img src="logo.png" alt="GameView">
+<img src="logo.png">
+
+<div class="card-content">
 
 <h2>🎮 Minecraft Survival</h2>
 
-<p>تماشای کلیپ ماینکرفت</p>
+<p>بهترین کلیپ ماینکرفت</p>
 
-<a class="btn" href="watch.html">▶ تماشای ویدیو</a>
+<div class="like">
+
+<span>❤️ 145</span>
+
+<span class="views">👁️ 2,354</span>
+
+</div>
+
+<div class="date">
+📅 2026
+</div>
+
+<a href="watch.html" class="btn">
+▶️ تماشای ویدیو
+</a>
+
+</div>
+
+</div><div class="card">
+
+<img src="logo.png">
+
+<div class="card-content">
+
+<h2>⛏️ Minecraft Building</h2>
+
+<p>آموزش ساخت خانه در ماینکرفت</p>
+
+<div class="like">
+<span>❤️ 92</span>
+<span class="views">👁️ 1,582</span>
+</div>
+
+<div class="date">
+📅 2026
+</div>
+
+<a href="watch.html" class="btn">
+▶️ تماشای ویدیو
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="logo.png">
+
+<div class="card-content">
+
+<h2>🔥 Minecraft Challenge</h2>
+
+<p>چالش‌های جذاب ماینکرفت</p>
+
+<div class="like">
+<span>❤️ 210</span>
+<span class="views">👁️ 5,240</span>
+</div>
+
+<div class="date">
+📅 2026
+</div>
+
+<a href="watch.html" class="btn">
+▶️ تماشای ویدیو
+</a>
+
+</div>
 
 </div>
 
 </div>
 
 <footer>
-© 2026 GameView
+
+<p>🎮 GameView</p>
+
+<p>تماشای بهترین ویدیوهای گیمینگ</p>
+
+<p>© 2026 GameView - All Rights Reserved</p>
+
 </footer>
 
 </body>
-</html> 
+</html>
