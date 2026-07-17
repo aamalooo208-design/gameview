@@ -232,4 +232,80 @@ border-radius:20px;
 
 ::-webkit-scrollbar-thumb:hover{
 background:#00aacc;
+}/* ===== Hero Banner ===== */
+
+.hero{
+height:400px;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),
+url("thumbnail1.jpg");
+background-size:cover;
+background-position:center;
+border-radius:20px;
+margin:30px;
+display:flex;
+align-items:center;
+padding:40px;
 }
+
+.hero-content h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero-content p{
+font-size:20px;
+color:#ddd;
+margin-bottom:20px;
+}
+
+.hero-btn{
+display:inline-block;
+padding:14px 28px;
+background:#00d4ff;
+color:#000;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+transition:.3s;
+}
+
+.hero-btn:hover{
+transform:scale(1.05);
+}<section class="hero">
+
+<div class="hero-content">
+
+<h1>🎮 به GameView خوش آمدید</h1>
+
+<p>
+بهترین ویدیوهای ماینکرفت، روبلاکس، فورتنایت و بازی‌های دیگر را تماشا کن.
+</p>
+
+<a href="watch.html" class="hero-btn">
+▶️ تماشای جدیدترین ویدیو
+</a>
+
+</div>
+
+</section>// ===== Hero Banner Animation =====
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const hero = document.querySelector(".hero");
+
+    if (hero) {
+
+        hero.animate(
+            [
+                { opacity: 0, transform: "translateY(-40px)" },
+                { opacity: 1, transform: "translateY(0px)" }
+            ],
+            {
+                duration: 1000,
+                easing: "ease-out"
+            }
+        );
+
+    }
+
+});
