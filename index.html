@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,146 +8,9 @@
 
 <title>GameView | ویدیوهای گیمینگ</title>
 
-<meta name="description" content="GameView سایت تماشای ویدیوهای گیمینگ و ماینکرفت">
+<meta name="description" content="GameView سایت تماشای ویدیوهای گیمینگ">
 
-<meta name="keywords" content="GameView, Minecraft, Gaming, Video">
-
-<meta name="robots" content="index,follow">
-
-<link rel="icon" href="logo.png">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-background:#111;
-font-family:Arial,sans-serif;
-color:white;
-}
-
-header{
-background:#1b1b1b;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.5);
-}
-
-.logo{
-font-size:35px;
-font-weight:bold;
-color:#00d4ff;
-}
-
-.search{
-width:45%;
-}
-
-.search input{
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-font-size:16px;
-}
-
-.menu a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:18px;
-}
-
-.menu a:hover{
-color:#00d4ff;
-}
-
-.container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-padding:30px;
-}
-
-.card{
-background:#1d1d1d;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 0 15px rgba(0,212,255,.25);
-transition:.3s;
-}
-
-.card:hover{
-transform:scale(1.03);
-}
-
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.card-content{
-padding:15px;
-}
-
-.card-content h2{
-font-size:22px;
-margin-bottom:10px;
-}
-
-.card-content p{
-color:#bbb;
-margin-bottom:10px;
-}.like{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-top:15px;
-}
-
-.views{
-color:#aaa;
-font-size:14px;
-}
-
-.date{
-color:#888;
-font-size:13px;
-margin-top:8px;
-}
-
-.btn{
-display:block;
-margin-top:15px;
-background:#00d4ff;
-color:black;
-text-decoration:none;
-text-align:center;
-padding:12px;
-border-radius:10px;
-font-weight:bold;
-}
-
-.btn:hover{
-background:#00aacc;
-}
-
-footer{
-background:#1b1b1b;
-padding:20px;
-text-align:center;
-margin-top:40px;
-color:#999;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -162,39 +26,37 @@ color:#999;
 <input type="text" placeholder="جستجوی ویدیو...">
 </div>
 
-<div class="menu">
+<nav class="menu">
 <a href="#">خانه</a>
 <a href="#">ویدیوها</a>
-<a href="#">درباره</a>
-</div>
+<a href="#">دسته‌بندی</a>
+<a href="upload.html">آپلود</a>
+<a href="profile.html">پروفایل</a>
+</nav>
 
 </header>
 
-<div class="container">
+<main class="container">
 
 <div class="card">
 
-<img src="logo.png">
+<img src="thumbnail1.jpg" alt="Minecraft">
 
 <div class="card-content">
 
-<h2>🎮 Minecraft Survival</h2>
+<h2>Minecraft Survival</h2>
 
-<p>بهترین کلیپ ماینکرفت</p>
+<p>شروع ماجراجویی در دنیای ماینکرفت.</p>
 
-<div class="like">
+<div class="info">
 
-<span>❤️ 145</span>
+<span class="like-btn" data-likes="145">❤️ 145</span>
 
-<span class="views">👁️ 2,354</span>
+<span>👁️ 2.3K</span>
 
 </div>
 
-<div class="date">
-📅 2026
-</div>
-
-<a href="watch.html" class="btn">
+<a class="btn" href="watch.html">
 ▶️ تماشای ویدیو
 </a>
 
@@ -202,24 +64,23 @@ color:#999;
 
 </div><div class="card">
 
-<img src="logo.png">
+<img src="thumbnail2.jpg" alt="Minecraft Build">
 
 <div class="card-content">
 
-<h2>⛏️ Minecraft Building</h2>
+<h2>Minecraft Building</h2>
 
-<p>آموزش ساخت خانه در ماینکرفت</p>
+<p>آموزش ساخت خانه حرفه‌ای در ماینکرفت.</p>
 
-<div class="like">
-<span>❤️ 92</span>
-<span class="views">👁️ 1,582</span>
+<div class="info">
+
+<span class="like-btn" data-likes="98">❤️ 98</span>
+
+<span>👁️ 1.8K</span>
+
 </div>
 
-<div class="date">
-📅 2026
-</div>
-
-<a href="watch.html" class="btn">
+<a class="btn" href="watch.html">
 ▶️ تماشای ویدیو
 </a>
 
@@ -229,24 +90,47 @@ color:#999;
 
 <div class="card">
 
-<img src="logo.png">
+<img src="thumbnail3.jpg" alt="Minecraft Challenge">
 
 <div class="card-content">
 
-<h2>🔥 Minecraft Challenge</h2>
+<h2>Minecraft Challenge</h2>
 
-<p>چالش‌های جذاب ماینکرفت</p>
+<p>چالش‌های جذاب و خنده‌دار ماینکرفت.</p>
 
-<div class="like">
-<span>❤️ 210</span>
-<span class="views">👁️ 5,240</span>
+<div class="info">
+
+<span class="like-btn" data-likes="210">❤️ 210</span>
+
+<span>👁️ 5.4K</span>
+
 </div>
 
-<div class="date">
-📅 2026
+<a class="btn" href="watch.html">
+▶️ تماشای ویدیو
+</a>
+
 </div>
 
-<a href="watch.html" class="btn">
+</div><div class="card">
+
+<img src="thumbnail1.jpg" alt="Roblox">
+
+<div class="card-content">
+
+<h2>Roblox Adventure</h2>
+
+<p>ماجراجویی هیجان‌انگیز در Roblox.</p>
+
+<div class="info">
+
+<span class="like-btn" data-likes="76">❤️ 76</span>
+
+<span>👁️ 980</span>
+
+</div>
+
+<a class="btn" href="watch.html">
 ▶️ تماشای ویدیو
 </a>
 
@@ -254,17 +138,44 @@ color:#999;
 
 </div>
 
+<div class="card">
+
+<img src="thumbnail2.jpg" alt="Fortnite">
+
+<div class="card-content">
+
+<h2>Fortnite Battle</h2>
+
+<p>بهترین لحظه‌های فورتنایت.</p>
+
+<div class="info">
+
+<span class="like-btn" data-likes="184">❤️ 184</span>
+
+<span>👁️ 3.7K</span>
+
 </div>
+
+<a class="btn" href="watch.html">
+▶️ تماشای ویدیو
+</a>
+
+</div>
+
+</div>
+
+</main>
 
 <footer>
 
-<p>🎮 GameView</p>
+<h3>🎮 GameView</h3>
 
-<p>تماشای بهترین ویدیوهای گیمینگ</p>
+<p>بهترین سایت ویدیوهای گیمینگ</p>
 
-<p>© 2026 GameView - All Rights Reserved</p>
+<p>© 2026 GameView. All Rights Reserved.</p></footer>
 
-</footer>
+<script src="script.js"></script>
 
 </body>
-</html>
+
+  </html>
