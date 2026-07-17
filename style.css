@@ -308,4 +308,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+});// ===== Trending Videos Animation =====
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const trendCards = document.querySelectorAll(".trend-card");
+
+    trendCards.forEach((card, index) => {
+
+        card.style.opacity = "0";
+
+        setTimeout(() => {
+
+            card.style.transition = "0.5s";
+            card.style.opacity = "1";
+
+        }, index * 200);
+
+    });
+
 });
