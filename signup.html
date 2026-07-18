@@ -9,37 +9,44 @@
   <h1>ثبت‌نام در GameView</h1>
 
   <input id="email" type="email" placeholder="ایمیل">
+  <br><br>
+
   <input id="password" type="password" placeholder="رمز عبور">
+  <br><br>
 
   <button id="signup">ثبت‌نام</button>
 
-  <p id="message"></p>
+  <p id="message">آماده ثبت‌نام...</p>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    const supabaseUrl = https://wlavimsjtfjwoqotkzik.supabase.co/rest/v1/;
-    const supabaseKey = sb_publishable_r1yIt4locU8U0HybHhlo5w_eGc3LRpg;
+    const supabaseUrl = "https://wlavimsjtfjwoqotkzik.supabase.co/rest/v1/";
+    const supabaseKey = "sb_publishable_r1yIt4locU8U0HybHhlo5w_eGc3LRpg";
 
     const supabase = window.supabase.createClient(
       supabaseUrl,
       supabaseKey
     );
 
-    document.getElementById("signup").addEventListener("click", async () => {document.getElementById("message").textContent = "دکمه کار می‌کند! ⏳";
+    document.getElementById("signup").addEventListener("click", async function () {
+
+      document.getElementById("message").textContent = "در حال ثبت‌نام... ⏳";
+
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password
       });
 
       if (error) {
-        document.getElementById("message").textContent = error.message;
+        document.getElementById("message").textContent =
+          "خطا: " + error.message;
       } else {
         document.getElementById("message").textContent =
-          "ثبت‌نام با موفقیت انجام شد! 🎉";
+          "ثبت‌نام موفق بود! 🎉";
       }
     });
   </script>
