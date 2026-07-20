@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>پروفایل | GameView</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #101010;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .profile {
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      background: #1d1d1d;
+      border-radius: 20px;
+    }
+
+    h1 {
+      color: #00ff99;
+    }
+
+    button {
+      padding: 14px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #00ff99;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    a {
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="profile">
+
+    <h1>👤 پروفایل من</h1>
+
+    <p id="email">در حال دریافت اطلاعات...</p>
+
+    <button id="upload">
+      🎥 آپلود ویدیو
+    </button>
+
+    <button id="logout">
+      🚪 خروج از حساب
+    </button>
+
+    <br>
+
+    <a href="index.html">🏠 بازگشت به GameView</a>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+
+    const supabaseUrl =
+      "https://wlavimsjtfjwoqotkzik.supabase.co";
+
+    const supabaseKey =
+      "sb_publishable_r1yIt4locU8U0HybHhlo5w_eGc3LRpg";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        supabaseUrl,
+        supabaseKey
+      );
+
+    async function loadProfile() {
+
+      const { data } =
+        await supabaseClient.auth.getUser();
+
+      if (!data.user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      document.getElementById("email").textContent =
+        "ایمیل: " + data.user.email;
+    }
+
+    document.getElementById("logout").addEventListener("click", async function () {
+
+      await supabaseClient.auth.signOut();
+
+      window.location.href = "login.html";
+
+    });
+
+    document.getElementById("upload").addEventListener("click", function () {
+
+      window.location.href = "upload.html";
+
+    });
+
+    loadProfile();
+
+  </script>
+
+</body>
+  </html>
