@@ -2,53 +2,185 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ثبت‌نام | GameView</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #101010;
+      color: white;
+    }
+
+    .signup-box {
+      width: 90%;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 20px;
+      background: #1d1d1d;
+      box-shadow: 0 0 30px rgba(0, 255, 150, 0.15);
+      text-align: center;
+    }
+
+    h1 {
+      color: #00ff99;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      background: #2b2b2b;
+      color: white;
+      font-size: 16px;
+      text-align: right;
+    }
+
+    input:focus {
+      outline: 2px solid #00ff99;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #00ff99;
+      color: #101010;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00cc7a;
+    }
+
+    #message {
+      margin-top: 20px;
+      color: #00ff99;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #aaa;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>ثبت‌نام در GameView</h1>
+  <div class="signup-box">
 
-  <input id="email" type="email" placeholder="ایمیل">
-  <br><br>
+    <h1>🎮 ثبت‌نام در GameView</h1>
 
-  <input id="password" type="password" placeholder="رمز عبور">
-  <br><br>
+    <input
+      id="email"
+      type="email"
+      placeholder="ایمیل خود را وارد کنید"
+    >
 
-  <button id="signup">ثبت‌نام</button>
+    <input
+      id="password"
+      type="password"
+      placeholder="رمز عبور"
+    >
 
-  <p id="message">آماده ثبت‌نام...</p>
+    <button id="signup">
+      ثبت‌نام 🚀
+    </button>
 
+    <p id="message">آماده ثبت‌نام...</p>
+
+    <a class="back" href="index.html">
+      ← بازگشت به GameView
+    </a>
+
+  </div>
+
+  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    const supabaseUrl = "https://wlavimsjtfjwoqotkzik.supabase.co/rest/v1/";
-    const supabaseKey = "sb_publishable_r1yIt4locU8U0HybHhlo5w_eGc3LRpg";
 
-    const supabase = window.supabase.createClient(
-      supabaseUrl,
-      supabaseKey
-    );
+    const supabaseUrl =
+      "https://wlavimsjtfjwoqotkzik.supabase.co";
 
-    document.getElementById("signup").addEventListener("click", async function () {
+    const supabaseKey =
+      "sb_publishable_r1yIt4locU8U0HybHhlo5w_eGc3LRpg";
 
-      document.getElementById("message").textContent = "در حال ثبت‌نام... ⏳";
+    const supabaseClient =
+      window.supabase.createClient(
+        supabaseUrl,
+        supabaseKey
+      );
 
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+    document
+      .getElementById("signup")
+      .addEventListener("click", async function () {
 
-      const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password
+        const email =
+          document.getElementById("email").value.trim();
+
+        const password =
+          document.getElementById("password").value;
+
+        const message =
+          document.getElementById("message");
+
+        if (email === "" || password === "") {
+          message.textContent =
+            "لطفاً ایمیل و رمز عبور را وارد کن ⚠️";
+
+          return;
+        }
+
+        if (password.length < 6) {
+          message.textContent =
+            "رمز عبور باید حداقل ۶ کاراکتر باشد 🔐";
+
+          return;
+        }
+
+        message.textContent =
+          "در حال ثبت‌نام... ⏳";
+
+        const { data, error } =
+          await supabaseClient.auth.signUp({
+            email: email,
+            password: password
+          });
+
+        if (error) {
+
+          message.textContent =
+            "خطا: " + error.message;
+
+        } else {
+
+          message.textContent =
+            "ثبت‌نام موفق بود! 🎉";
+
+        }
+
       });
 
-      if (error) {
-        document.getElementById("message").textContent =
-          "خطا: " + error.message;
-      } else {
-        document.getElementById("message").textContent =
-          "ثبت‌نام موفق بود! 🎉";
-      }
-    });
   </script>
 
 </body>
